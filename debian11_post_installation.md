@@ -68,7 +68,7 @@ Edit /etc/systemd/logind.conf:
 HandleLidSwitch=suspend-then-hibernate
 ```
 
-Check /etc/systemd/sleep.conf:
+Check ```/etc/systemd/sleep.conf```:
 
 ```
 AllowSuspendThenHibernate=yes
@@ -124,10 +124,7 @@ xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/logind-handle-lid-sw
 
 ## Screen tearing AMDGPU:
 
-Create 
-```
-/etc/X11/xorg.conf.d/20-amdgpu.conf
-```
+Create ```/etc/X11/xorg.conf.d/20-amdgpu.conf```
 
 and add the following to it:
 
