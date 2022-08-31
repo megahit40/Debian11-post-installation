@@ -2,6 +2,12 @@
 
 PC: Lenovo YOGA Slim 7 14ARE05 (AMD Ryzen 7, AMD Radeon Graphics)
 
+## Packages:
+
+```
+sudo apt install firmware-linux-free
+```
+
 ## Environment variables:
 
 Create ```~/.xsessionrc```
