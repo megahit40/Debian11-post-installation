@@ -1,5 +1,7 @@
 # Debian 11 XFCE post installation
 
+PC: Lenovo YOGA Slim 7 14ARE05 (AMD Ryzen 7, AMD Radeon Graphics)
+
 ## Environment variables:
 
 Create ```~/.xsessionrc```
@@ -87,7 +89,7 @@ Example:
 
 ```GRUB_CMDLINE_LINUX="resume=UUID=dc64f684-08da-4f47-9180-5923edfd5fbf resume_offset=6422528"```
 
-### xfce4-power-manager will by default override logind.conf.
+#### xfce4-power-manager will by default override logind.conf.
 
 Query status of Xfce power manager:
 
