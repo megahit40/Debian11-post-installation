@@ -6,6 +6,7 @@ PC: Lenovo YOGA Slim 7 14ARE05 (AMD Ryzen 7, AMD Radeon Graphics)
 
 ```
 sudo apt install firmware-linux-free
+sudo apt install firmware-iwlwifi
 ```
 
 ## Environment variables:
