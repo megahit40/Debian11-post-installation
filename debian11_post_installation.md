@@ -5,36 +5,49 @@
 Create ```~/.xsessionrc```
 and add the following lines:
 
-```export XDG_CONFIG_HOME="$HOME/.config```
-```export XDG_DATA_HOME="$HOME/.local/share"```
-```export PATH=$PATH:"~/.local/bin"```
-```export PATH="$PATH:~/.scripts"```
-
+```
+export XDG_CONFIG_HOME="$HOME/.config
+export XDG_DATA_HOME="$HOME/.local/share"
+export PATH=$PATH:"~/.local/bin"
+export PATH="$PATH:~/.scripts"
+```
 
 ## Swapfile (assuming no swap partition of course):
 
-```sudo fallocate -l 17G /swapfile```
+```
+sudo fallocate -l 17G /swapfile
+```
 or
-```sudo dd if=/dev/zero of=/swapfile bs=xxxx count=xxxxx```
+```
+sudo dd if=/dev/zero of=/swapfile bs=xxxx count=xxxxx
+```
 
-```sudo chmod 600 /swapfile```
-```sudo mkswap /swapfile```
-```sudo swapon /swapfile```
+```
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+```
 
-edit ```/etc/fstab```:
+edit ```/etc/fstab```,
+and add the following line:
 
-```/swapfile swap swap defaults 0 0```
+```
+/swapfile swap swap defaults 0 0
+```
 
 Verify:
 
-```sudo swapon --show```
+```
+sudo swapon --show
+```
 
 (To remove swapping:
 
-```sudo swapoff -v /swapfile```
-```sudo rm /swapfile```
-  and delete 
-```/swapfile swap swap defaults 0 0``` from ```/etc/fstab```)
+```
+sudo swapoff -v /swapfile
+sudo rm /swapfile
+```
+(and delete ```/swapfile swap swap defaults 0 0``` from ```/etc/fstab```)
 
 ## Hibernation:
 
@@ -42,23 +55,33 @@ Verify:
 
 Edit /etc/systemd/logind.conf:
 
-```HandleLidSwitch=suspend-then-hibernate```
+```
+HandleLidSwitch=suspend-then-hibernate
+```
 
 Check /etc/systemd/sleep.conf:
 
-```AllowSuspendThenHibernate=yes```
+```
+AllowSuspendThenHibernate=yes
+```
 
 ### Find UUID and offset of ```/swapfile```:
 
 Physical offset:
 
-```sudo filefrag -v /swapfile```
+```
+sudo filefrag -v /swapfile
+```
 
 UUID:
 
-```sudo findmnt -no UUID -T /swapfile```
+```
+sudo findmnt -no UUID -T /swapfile
+```
 
-Edit ```/etc/default/grub```, find ```GRUB_CMDLINE_LINUX``` and add UUID and offset of swapfile:
+Edit ```/etc/default/grub```,
+find ```GRUB_CMDLINE_LINUX```,
+and add UUID and offset of swapfile:
 
 Example:
 
@@ -68,23 +91,34 @@ Example:
 
 Query status of Xfce power manager:
 
-```xfce4-power-manager --dump```
+```
+xfce4-power-manager --dump
+```
 
 Query handling of logind-handle-lid-switch:
 
-```xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/logind-handle-lid-switch```
+```
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/logind-handle-lid-switch
+```
 
 If ```false```, change to ```true``` with the following command:
 
-```xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/logind-handle-lid-switch -n -t bool -s true```
+```
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/logind-handle-lid-switch -n -t bool -s true
+```
 
 Verify with:
 
-```xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/logind-handle-lid-switch```
+```
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/logind-handle-lid-switch
+```
 
 ## Screen tearing AMDGPU:
 
-Create ```/etc/X11/xorg.conf.d/20-amdgpu.conf```
+Create 
+```
+/etc/X11/xorg.conf.d/20-amdgpu.conf
+```
 
 and add the following to it:
 
@@ -95,8 +129,6 @@ Section "Device"
   Option "TearFree" "true"
 EndSection
 ```
-
-For Intel: change ```Driver "admgpu"``` to ```Driver "intel"```
 
 ## Bluetooth
 
