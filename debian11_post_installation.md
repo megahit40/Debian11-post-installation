@@ -148,4 +148,13 @@ EndSection
 
 ```sudo apt install blueman```
 
-Provides graphical UI to bluez, includes system tray applet
+Provides graphical UI to bluez, includes system tray applet.
+
+## Bugs:
+
+bluetootd will report error on startup regarding ```sap```:
+e.g. "profiles/sap/server.c:sap_server_register() Sap driver initialization failed."
+and "sap-server: Operation not permitted (1)"
+SAP is for old equipment and can be ignored. Ref. https://unix.stackexchange.com/questions/705326/debian-11-bluetooth-sap-driver-initialization-failed
+To stop messages, edit the bluetoothd.service file and add the following flag```--noplugin=sap``` in exec-line:
+```ExecStart=/usr/libexec/bluetooth/bluetoothd --noplugin=sap```
