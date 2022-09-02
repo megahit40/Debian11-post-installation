@@ -8,10 +8,18 @@ PC: Lenovo YOGA Slim 7 14ARE05 (AMD Ryzen 7, AMD Radeon Graphics)
 sudo apt install firmware-linux-free
 sudo apt install firmware-iwlwifi
 ```
+Optional:
+```
+sudo apt install ```firmware-linux```
+(non-free/metapackages)
+Needs the following or similar line in ```/etc/apt/sources.list``` or e.g.```/etc/apt/sources.list.d/debain-non-free.list```:
+```deb http://ftp.no.debian.org/debian bullseye main non-free```
+
+Need 
 
 ## Environment variables:
 
-Create ```~/.xsessionrc```
+Create ```~/.xsessionrc```,
 and add the following lines:
 
 ```
