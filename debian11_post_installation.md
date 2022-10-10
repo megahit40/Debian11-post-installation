@@ -26,7 +26,7 @@ and add the following lines:
 ```
 export XDG_CONFIG_HOME="$HOME/.config
 export XDG_DATA_HOME="$HOME/.local/share"
-export PATH=$PATH:"~/.local/bin"
+export PATH="$PATH:~/.local/bin"
 export PATH="$PATH:~/.scripts"
 ```
 
