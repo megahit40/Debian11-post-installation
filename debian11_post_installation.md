@@ -7,7 +7,6 @@ PC: Lenovo YOGA Slim 7 14ARE05 (AMD Ryzen 7, AMD Radeon Graphics)
 ```
 sudo apt install firmware-linux-free
 sudo apt install firmware-iwlwifi
-
 ```
 Optional:
 
@@ -24,12 +23,11 @@ Needs the following or similar line in ```/etc/apt/sources.list``` or e.g.```/et
 Create ```~/.xsessionrc```,
 and add the following lines:
 
-```bash
+```
 export XDG_CONFIG_HOME="$HOME/.config
 export XDG_DATA_HOME="$HOME/.local/share"
 export PATH=$PATH:"~/.local/bin"
 export PATH="$PATH:~/.scripts"
-
 ```
 
 ## Swapfile (assuming no swap partition of course):
