@@ -99,11 +99,13 @@ sudo findmnt -no UUID -T /swapfile
 
 Edit ```/etc/default/grub```,
 find ```GRUB_CMDLINE_LINUX```,
-and add UUID and offset of swapfile:
+and add UUID and offset of swapfile (uncomment ```GRUB_CMDLINE_LINUX_DEFUALT```):
 
 Example:
 
-```GRUB_CMDLINE_LINUX="resume=UUID=dc64f684-08da-4f47-9180-5923edfd5fbf resume_offset=6422528"```
+```GRUB_CMDLINE_LINUX="quiet splash resume=UUID=dc64f684-08da-4f47-9180-5923edfd5fbf resume_offset=6422528"```
+
+Run ```sudo update-grub```
 
 #### xfce4-power-manager will by default override logind.conf.
 
